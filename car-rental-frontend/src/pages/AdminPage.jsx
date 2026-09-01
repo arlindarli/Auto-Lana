@@ -140,6 +140,9 @@ function CarForm({ initial, onCancel, onSaved }) {
     const uploadedUrls = [];
 
     for (const file of files) {
+      if (!file || file.size === 0) {
+  continue;
+}
       const formData = new FormData();
       formData.append("file", file);
 
