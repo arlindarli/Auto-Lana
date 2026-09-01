@@ -1,8 +1,10 @@
 // Një vend i vetëm për bazën e API-t.
 // Kur backend-i të shkojë online, ndrysho VETËM këtë vlerë.
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:8080";
-
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.DEV
+    ? "http://localhost:8080"
+    : "https://auto-lana-production.up.railway.app");
 async function request(path, options = {}) {
   const res = await fetch(`${API_BASE_URL}${path}`, {
   ...options,
