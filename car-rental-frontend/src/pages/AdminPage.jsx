@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../api/api";
 import { useNavigate } from "react-router-dom";
 import {
   getCars,
@@ -142,8 +143,8 @@ function CarForm({ initial, onCancel, onSaved }) {
       const formData = new FormData();
       formData.append("file", file);
 
-      const res = await fetch(
-        "http://localhost:8080/api/files/upload",
+     const res = await fetch(
+  `${API_BASE_URL}/api/files/upload`,
         {
           method: "POST",
           headers: {
@@ -182,9 +183,9 @@ function CarForm({ initial, onCancel, onSaved }) {
       >
         <img
           src={
-            url.startsWith("/uploads/")
-              ? `http://localhost:8080${url}`
-              : url
+          url.startsWith("/uploads/")
+  ? `${API_BASE_URL}${url}`
+  : url
           }
           alt={`Foto ${index + 1}`}
           className="h-28 w-full object-cover"
@@ -421,7 +422,7 @@ function BookingsAdmin() {
     const token = localStorage.getItem("adminToken");
 
     const res = await fetch(
-      `http://localhost:8080/api/bookings/${bookingId}/status`,
+      `${API_BASE_URL}/api/bookings/${bookingId}/status`,
       {
         method: "PUT",
         headers: {
