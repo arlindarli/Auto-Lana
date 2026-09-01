@@ -1,0 +1,56 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&f[]=space-mono@400,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-mist text-ink font-body antialiased;
+}
+
+/* Vija e rrugës — elementi nënshkrimor që lidh seksionet, si një trase GPS */
+.route-line {
+  background-image: repeating-linear-gradient(
+    90deg,
+    currentColor 0px,
+    currentColor 10px,
+    transparent 10px,
+    transparent 22px
+  );
+  height: 2px;
+}
+
+.route-line-v {
+  background-image: repeating-linear-gradient(
+    180deg,
+    currentColor 0px,
+    currentColor 10px,
+    transparent 10px,
+    transparent 22px
+  );
+  width: 2px;
+}
+
+/* Fokusi i tastierës gjithmonë i dukshëm */
+:focus-visible {
+  outline: 2px solid #FFB238;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.booking-date-disabled {
+  opacity: 0.35;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}

@@ -1,0 +1,29 @@
+# Frontend dependencies
+node_modules/
+**/node_modules/
+
+# Frontend build
+dist/
+**/dist/
+
+# Backend build
+target/
+**/target/
+
+# Uploaded car images
+uploads/
+**/uploads/
+
+# Environment / secrets
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
+# Local backend database configuration
+**/src/main/resources/application.yaml
